@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sir Codealot - Front-End Knight</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap');
+        
+        body {
+            font-family: 'Cinzel', serif;
+            background-color: #f5f1e6;
+            color: #3a3226;
+        }
+        
+        .header-bg {
+            background-image: url('https://images.unsplash.com/photo-1608889825102-eb288a9f043f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: multiply;
+        }
+        
+        .skill-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .skill-icon:hover {
+            transform: scale(1.2) translateY(-5px);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scroll-down {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #8b5a2b, transparent);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-amber-900 bg-opacity-90 backdrop-blur-sm shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <i class="fas fa-shield-alt text-amber-400 text-2xl"></i>
+                    <span class="text-amber-100 font-bold text-lg md:text-xl font-mono tracking-wider">Dimas's Guild Card</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-amber-100 hover:text-amber-300 transition">Home</a>
+                    <a href="#skills" class="text-amber-100 hover:text-amber-300 transition">Skills</a>
+                    <a href="#projects" class="text-amber-100 hover:text-amber-300 transition">Quest Log</a>
+                    <a href="#about" class="text-amber-100 hover:text-amber-300 transition">About</a>
+                    <a href="#contact" class="text-amber-100 hover:text-amber-300 transition">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-amber-100 focus:outline-none hover:text-amber-300 transition">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-amber-900 bg-opacity-95 border-t border-amber-800">
+            <div class="flex flex-col px-4 py-4 space-y-4">
+                <a href="#home" class="mobile-link text-amber-100 hover:text-amber-300 transition">Home</a>
+                <a href="#skills" class="mobile-link text-amber-100 hover:text-amber-300 transition">Skills</a>
+                <a href="#projects" class="mobile-link text-amber-100 hover:text-amber-300 transition">Quest Log</a>
+                <a href="#about" class="mobile-link text-amber-100 hover:text-amber-300 transition">About</a>
+                <a href="#contact" class="mobile-link text-amber-100 hover:text-amber-300 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="header-bg bg-amber-900 min-h-screen flex flex-col items-center justify-center pt-20 px-4">
+        <div class="container mx-auto text-center w-full">
+            <div class="max-w-4xl mx-auto backdrop-blur-sm bg-black bg-opacity-40 p-6 md:p-8 rounded-lg border border-amber-700">
+                <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-amber-100 mb-4 md:mb-6 font-serif tracking-wider leading-tight">
+                    Dimas Agung Hidayatulloh
+                </h1>
+                <h2 class="text-xl sm:text-2xl md:text-3xl text-amber-300 mb-6 md:mb-8 font-serif">
+                    Backend Developer
+                </h2>
+                <p class="text-base sm:text-lg md:text-xl text-amber-100 mb-8 md:mb-10 max-w-2xl mx-auto">
+                    I Forge a mighty backend that can withstand across platforms, ensuring your digital needs are met with speed, security, and scalability.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#projects" class="bg-amber-700 hover:bg-amber-600 text-amber-100 font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto">
+                        View My Quests
+                    </a>
+                    <a href="#contact" class="bg-transparent hover:bg-amber-800 text-amber-100 font-bold py-3 px-6 border border-amber-500 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto">
+                        Summon Me
+                    </a>
+                </div>
+            </div>
+            <div class="mt-12 md:mt-16 scroll-down">
+                <a href="#skills" class="text-amber-200 hover:text-amber-100">
+                    <i class="fas fa-chevron-down text-3xl md:text-4xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 md:py-20 bg-stone-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-amber-900 mb-4 font-serif">
+                    My Arsenal of Skills
+                </h2>
+                <div class="divider w-24 h-1 mx-auto mb-6"></div>
+                <p class="text-base md:text-lg text-stone-700 max-w-2xl mx-auto">
+                    Through years of training and battles with bugs, I've mastered these powerful tools and spells.
+                </p>
+            </div>
+            
+            <!-- Diubah ke grid-cols-1 untuk HP agar tidak terlalu berdesakan -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
+                <!-- Skill 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition">
+                    <div class="skill-icon text-5xl text-cyan-700 mb-4">
+                        <i class="fab fa-golang"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-2">Golang</h3>
+                    <p class="text-stone-600 text-sm md:text-base">Spell that give you an Immaculate speed</p>
+                </div>
+                
+                <!-- Skill 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition">
+                    <div class="skill-icon text-5xl text-blue-600 mb-4">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-2">PostgreSQL</h3>
+                    <p class="text-stone-600 text-sm md:text-base">Managing data with precision</p>
+                </div>
+                
+                <!-- Skill 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition">
+                    <div class="skill-icon text-5xl text-yellow-500 mb-4">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-2">JavaScript</h3>
+                    <p class="text-stone-600 text-sm md:text-base">Bringing magic to the realm</p>
+                </div>
+                
+                <!-- Skill 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition">
+                    <div class="skill-icon text-5xl text-red-700 mb-4">
+                        <i class="fab fa-laravel"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-2">Laravel</h3>
+                    <p class="text-stone-600 text-sm md:text-base">Basic Spell with a Stabil Performance</p>
+                </div>
+                
+                <!-- Skill 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition">
+                    <div class="skill-icon text-5xl text-blue-600 mb-4">
+                        <i class="fa-brands fa-docker"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-2">Docker</h3>
+                    <p class="text-stone-600 text-sm md:text-base">Multi Dimensional Container</p>
+                </div>
+                
+                <!-- Skill 6 -->
+                <div class="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl transition">
+                    <div class="skill-icon text-5xl text-green-600 mb-4">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-stone-800 mb-2">Node.js</h3>
+                    <p class="text-stone-600 text-sm md:text-base">Server-side wizardry</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <h3 class="text-lg md:text-xl font-bold text-amber-900 mb-4">Other Tools in My Satchel</h3>
+                <div class="flex flex-wrap justify-center gap-2 md:gap-4">
+                    <span class="bg-stone-200 px-4 py-2 rounded-full text-sm md:text-base text-stone-800">Postman</span>
+                    <span class="bg-stone-200 px-4 py-2 rounded-full text-sm md:text-base text-stone-800">Flutter</span>
+                    <span class="bg-stone-200 px-4 py-2 rounded-full text-sm md:text-base text-stone-800">Git</span>
+                    <span class="bg-stone-200 px-4 py-2 rounded-full text-sm md:text-base text-stone-800">AI Agent</span>
+                    <span class="bg-stone-200 px-4 py-2 rounded-full text-sm md:text-base text-stone-800">Terminal</span>
+                    <span class="bg-stone-200 px-4 py-2 rounded-full text-sm md:text-base text-stone-800">Express</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 md:py-20 bg-stone-200">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-amber-900 mb-4 font-serif">
+                    My Completed Quests
+                </h2>
+                <div class="divider w-24 h-1 mx-auto mb-6"></div>
+                <p class="text-base md:text-lg text-stone-700 max-w-2xl mx-auto">
+                    These are the great adventures I've undertaken and the treasures I've uncovered.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-amber-800 flex items-center justify-center">
+                        <img src="assets/Ticket.png" alt="Ticketing System" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-stone-800 mb-2">Ticketing System</h3>
+                        <p class="text-stone-600 mb-4 text-sm md:text-base">A comprehensive ticketing solution for managing and tracking support requests.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-semibold">Laravel</span>
+                            <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-semibold">MySql</span>
+                            <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-semibold">Flutter</span>
+                        </div>
+                        <div class="flex space-x-3 mt-auto">
+                            <a href="https://github.com/Dimgung12345/JPN-Mobile" class="text-amber-700 hover:text-amber-900 font-bold">
+                                <i class="fab fa-github"></i> Codex
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-blue-800 flex items-center justify-center">
+                        <img src="assets/DKM.png" alt="Service Note System" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-stone-800 mb-2">Service Note System</h3>
+                        <p class="text-stone-600 mb-4 text-sm md:text-base">A Reliable Service System that can note all your service at once and give the Invoice right away</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">Express</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">Node.js</span>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">PostgreSQL</span>
+                        </div>
+                        <div class="flex space-x-3 mt-auto">
+                            <a href="https://github.com/Dimgung12345/JPN-SERVICE" class="text-blue-700 hover:text-blue-900 font-bold">
+                                <i class="fab fa-github"></i> Codex
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 bg-purple-800 flex items-center justify-center">
+                        <img src="assets/Jam.png" alt="Shirne Clock Configuration" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-stone-800 mb-2">Shrine Clock Configuration</h3>
+                        <p class="text-stone-600 mb-4 text-sm md:text-base">A system That so Complex it needs a Fusion of Rest API and Extended API.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold">Golang</span>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold">PostgreSQL</span>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-semibold">Flutter</span>
+                        </div>
+                        <div class="flex space-x-3 mt-auto">
+                            <a href="https://github.com/Dimgung12345/Backend_Masjid" class="text-purple-700 hover:text-purple-900 font-bold">
+                                <i class="fab fa-github"></i> Codex
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-amber-700 hover:bg-amber-600 text-amber-100 font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto">
+                    View All Quests
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 md:py-20 bg-stone-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-10 md:gap-12">
+                <div class="w-2/3 sm:w-1/2 lg:w-1/3">
+                    <div class="bg-white p-3 md:p-4 rounded-full shadow-xl border-4 border-amber-600">
+                        <img src="assets/Dimas.jpeg" alt="Sir Codealot" class="w-full h-auto rounded-full border-4 border-amber-200">
+                    </div>
+                </div>
+                <div class="w-full lg:w-2/3 text-center lg:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-amber-900 mb-4 md:mb-6 font-serif">
+                        About Me
+                    </h2>
+                    <div class="divider w-24 h-1 mb-6 mx-auto lg:mx-0"></div>
+                    <div class="text-base md:text-lg text-stone-700 space-y-4">
+                        <p>
+                            I am a Backend Developer specializing in modular architecture and clean, maintainable code, primarily using Golang. I structure projects with clear separation between models, repositories, services, and controllers to keep systems scalable and easy to evolve.
+                        </p>
+                        <p>
+                            I prioritize performance and reliability when handling large datasets, and I design solutions with testing, observability, and graceful error handling in mind. My approach is pragmatic: measurable improvements, minimal surprises, and code that teammates can trust.
+                        </p>
+                        <p>
+                            I’m open to opportunities where I can contribute immediately to building robust, production-ready services; I work well in collaborative teams and enjoy turning complex problems into reliable, well-documented systems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-20 bg-amber-900 text-amber-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 font-serif">
+                    Send a Raven
+                </h2>
+                <div class="divider w-24 h-1 mx-auto mb-6 bg-amber-300"></div>
+                <p class="text-base md:text-lg max-w-2xl mx-auto">
+                    Have a quest that requires my skills? Send me a message by raven, carrier pigeon, or the form below.
+                </p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto bg-stone-800 bg-opacity-50 backdrop-blur-sm rounded-lg p-6 md:p-8 shadow-xl border border-amber-700">
+                <form>
+                    <div class="mb-5 md:mb-6">
+                        <label for="name" class="block text-amber-200 mb-2">Your Noble Name</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 bg-stone-700 bg-opacity-50 border border-amber-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-amber-100 placeholder-amber-300">
+                    </div>
+                    <div class="mb-5 md:mb-6">
+                        <label for="email" class="block text-amber-200 mb-2">Your Castle's Location (Email)</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 bg-stone-700 bg-opacity-50 border border-amber-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-amber-100 placeholder-amber-300">
+                    </div>
+                    <div class="mb-5 md:mb-6">
+                        <label for="subject" class="block text-amber-200 mb-2">Nature of Your Quest</label>
+                        <select id="subject" class="w-full px-4 py-3 bg-stone-700 bg-opacity-50 border border-amber-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-amber-100">
+                            <option value="" disabled selected>Select a quest type</option>
+                            <option value="website">Website Creation</option>
+                            <option value="app">Web Application</option>
+                            <option value="consult">Consultation</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-5 md:mb-6">
+                        <label for="message" class="block text-amber-200 mb-2">Your Message</label>
+                        <textarea id="message" rows="5" class="w-full px-4 py-3 bg-stone-700 bg-opacity-50 border border-amber-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-amber-100 placeholder-amber-300"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-amber-700 hover:bg-amber-600 text-amber-100 font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                        Send Message <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <div class="flex flex-col md:flex-row flex-wrap justify-center items-center gap-6 md:gap-8 mt-12 md:mt-16">
+                <div class="flex items-center">
+                    <i class="fas fa-envelope text-2xl text-amber-300 mr-3"></i>
+                    <span class="text-amber-100 text-sm md:text-base break-all">dimasagunghidayatulloh@gmail.com</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-phone-alt text-2xl text-amber-300 mr-3"></i>
+                    <span class="text-amber-100 text-sm md:text-base">+62 082118016073</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fab fa-github text-2xl text-amber-300 mr-3"></i>
+                    <span class="text-amber-100 text-sm md:text-base">github.com/Dimgung12345</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-amber-100 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div>
+                    <a href="#" class="flex items-center space-x-2">
+                        <i class="fas fa-shield-alt text-amber-400 text-2xl"></i>
+                        <span class="text-amber-100 font-bold text-xl font-mono tracking-wider">Sir Codealot</span>
+                    </a>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="mailto:dimasagunghidayatulloh@gmail.com" class="text-amber-100 hover:text-amber-300 transition">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="https://github.com/Dimgung12345" class="text-amber-100 hover:text-amber-300 transition">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://wa.me/62082118016073" class="text-amber-100 hover:text-amber-300 transition">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" class="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-amber-700 text-amber-100 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg transition opacity-0 invisible hover:bg-amber-600 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Mobile Menu Toggle (Dibuat jauh lebih bersih)
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Menutup menu mobile saat link di klik
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
